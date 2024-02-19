@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Edit Todo <%= todo.id%></h2>
-    <form action="/update/<%= todo.id %>" method="post" headers={"userid": "2"}>
+    <form action="/todos/update/<%= todo.id %>" method="post" headers={"userid": "2"}>
         <label>title</label><br>
         <input type="text" name="title" value="<%= todo.title %>" placeholder="enter the title"><br><br>
         <label>description</label><br>
