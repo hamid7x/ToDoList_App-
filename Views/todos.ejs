@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table{
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+        }
+        .table-dark{
+            background-color: black;
+            color: white;
+        }
+        .table tr,th,td{
+            padding: 10px 20px;
+        }
+        .add-btn{
+            border: none;
+            padding: 10px 15px;
+            background-color: green;
+            border-radius: 2px;
+        }
+        .add-btn a{
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: capitalize;
+            font-weight: 600;
+            color: #fff;
+        }
+        .btn{
+            display: inline-block;
+            text-decoration: none;
+            background-color: black;
+            color: #fff;
+            width: 50px;
+            border-radius: 2px;
+            text-align: center;
+            padding: 4px;
+        }
+        .btn.delete{
+            background-color: rgba(255, 8, 0, 0.646);
+        }
+        .btn.edit{
+            background-color: rgba(41, 145, 230, 0.79);
+        }
+        td input{
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+        td input:focus{
+            /* border: 1px solid rgba(41, 145, 230, 0.79); */
+        }
+        .inp-add{
+             
+        }
+    </style>
+</head>
+<body>
+    <h1>All Todos</h1>
+    <button class="add-btn"><a href="/todos/add" >add new todo</a></button><br><br>
+    <%if(!todos.length){%>
+        <h2>no to todos in database</h2>
+    <%} else{%>
+    <table class="table" border="1">
+        <thead class="table-dark">
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+                <%todos.forEach(todo=>{%>
+                    <tr>
+                        <td><%=todo.id%></td>
+                        <td><%=todo.title%></td>
+                        <td><%=todo.description%></td>
+                        <td>
+                            <a href='/todos/edit/<%= todo.id %>' class="btn edit">edit</a>
+                            <a href="/todos/delete/<%= todo.id %>" class="btn delete">delete</a>
+                        </td>
+                    </tr>
+                <% })%>
+            <%}%>
+                <!-- <tr>
+                <td><input class="inp-add" type="text" name="title" placeholder="title"></td>
+                <td><input class="inp-add" type="text" name="description" placeholder="description"></td>
+                <td><input class="inp-add" type="text" name="author_id" placeholder="author id"></td>
+                <td>
+                    <a href="/">Add Todo</a>    
+                </td>
+            </tr> -->
+        </tbody>
+      </table>
+</body>
+</html>

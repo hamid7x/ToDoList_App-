@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Add New Todo</h2>
+    <form action="/todos/addTodo" method="post">
+        <label>title</label><br>
+        <input type="text" name="title" placeholder="enter the title"><br><br>
+        <label>description</label><br>
+        <input type="text" name="description" placeholder="enter the description"><br><br>
+        <label>author ID</label><br>
+        <input type="number" name="author_id" placeholder="author id"><br><br>
+        <input type="submit" value="Add">
+        <button><a href="/todos">Back</a></button>
+    </form>
+        
+</body>
+</html>
